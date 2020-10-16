@@ -5,10 +5,11 @@ import android.widget.ImageView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.core.BuildConfig
 import com.example.core.R
 import java.util.*
 
-const val key = "403a22d62769b2f5b28ce5321b91690f"
+const val key = BuildConfig.MOVIES_ACCESS_KEY
 const val APIMOVIE = "https://api.themoviedb.org/3/"
 const val YOUTUBEURL = " https://www.youtube.com/watch?v="
 

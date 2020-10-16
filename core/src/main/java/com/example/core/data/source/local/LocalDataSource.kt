@@ -16,9 +16,9 @@ class LocalDataSource @Inject constructor (private val moviesDao: MoviesDao) {
     fun getAllGenre(): Flow<List<GenreEntity>> = moviesDao.getAllGenre()
     suspend fun insertGenre(genreList: List<GenreEntity>) = moviesDao.insertGenre(genreList)
 
-    fun getAllReview(): Flow<List<ReviewEntity>> = moviesDao.getAllReview()
+    fun getAllReview(idMovies:Int): Flow<List<ReviewEntity>> = moviesDao.getAllReview(idMovies)
     suspend fun insertReview(review: List<ReviewEntity>) = moviesDao.insertReview(review)
 
-    fun getAllVideo(): Flow<List<VideosEntity>> = moviesDao.getAllVideo()
+    fun getAllVideo(idMovies:Int): Flow<List<VideosEntity>> = moviesDao.getAllVideo(idMovies)
     suspend fun insertVideo(video: List<VideosEntity>) = moviesDao.insertVideo(video)
 }

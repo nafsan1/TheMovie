@@ -16,6 +16,7 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        buildConfigField("String", "MOVIES_ACCESS_KEY", movies_access_key)
     }
 
     buildTypes {

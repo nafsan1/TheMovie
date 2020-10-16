@@ -57,7 +57,7 @@ class MoviesRepository @Inject constructor(
     override fun getReview(id:Int): Flow<Resource<List<Review>>> =
         object : NetworkBoundResource<List<Review>, List<ReviewResponse>>() {
             override fun loadFromDB(): Flow<List<Review>> {
-                return localDataSource.getAllReview().map {
+                return localDataSource.getAllReview(id).map {
                     DataMapper.reviewEntitiesToDomain(it)
                 }
             }
@@ -69,7 +69,7 @@ class MoviesRepository @Inject constructor(
                 remoteDataSource.getReview(id)
 
             override suspend fun saveCallResult(data: List<ReviewResponse>) {
-                val dataArray = DataMapper.reviewResponsesToEntities(data)
+                val dataArray = DataMapper.reviewResponsesToEntities(data,id)
                 localDataSource.insertReview(dataArray)
             }
 
@@ -78,7 +78,7 @@ class MoviesRepository @Inject constructor(
     override fun getVideo(id: Int): Flow<Resource<List<Video>>>  =
         object : NetworkBoundResource<List<Video>, List<VideoResponse>>() {
             override fun loadFromDB(): Flow<List<Video>> {
-                return localDataSource.getAllVideo().map {
+                return localDataSource.getAllVideo(id).map {
                     DataMapper.videoEntitiesToDomain(it)
                 }
             }
@@ -91,7 +91,7 @@ class MoviesRepository @Inject constructor(
                 remoteDataSource.getVideo(id)
 
             override suspend fun saveCallResult(data: List<VideoResponse>) {
-                val dataArray = DataMapper.videoResponsesToEntities(data)
+                val dataArray = DataMapper.videoResponsesToEntities(data,id)
                 localDataSource.insertVideo(dataArray)
             }
 

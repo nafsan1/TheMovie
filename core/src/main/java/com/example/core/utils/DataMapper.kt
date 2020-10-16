@@ -65,19 +65,15 @@ object DataMapper {
             )
         }
 
-    fun genreDomainToEntity(input: Genre) = GenreEntity(
-        id = input.id,
-        name = input.name
-    )
-
-    fun reviewResponsesToEntities(input: List<ReviewResponse>): List<ReviewEntity> {
+    fun reviewResponsesToEntities(input: List<ReviewResponse>,idMovie:Int): List<ReviewEntity> {
         val list = ArrayList<ReviewEntity>()
         input.map {
             val review = ReviewEntity(
                 id = it.id,
                 author = it.author,
                 content = it.content,
-                url = it.url
+                url = it.url,
+                id_movies = idMovie
             )
             list.add(review)
         }
@@ -94,18 +90,12 @@ object DataMapper {
             )
         }
 
-    fun reviewDomainToEntity(input: Review) = ReviewEntity(
-        id = input.id,
-        author = input.author,
-        content = input.content,
-        url = input.url
-    )
-
-    fun videoResponsesToEntities(input: List<VideoResponse>): List<VideosEntity> {
+    fun videoResponsesToEntities(input: List<VideoResponse>,idMovie:Int): List<VideosEntity> {
         val list = ArrayList<VideosEntity>()
         input.map {
             val video = VideosEntity(
                 id = it.id,
+                id_movies = idMovie,
                 key = it.key
             )
             list.add(video)

@@ -16,5 +16,9 @@ data class ReviewEntity (
     @ColumnInfo(name = "content")
     val content: String,
     @ColumnInfo(name = "url")
-    val url: String
+    val url: String,
+    @ColumnInfo(name = "id_movies")
+    val id_movies: Int
+
+
 )

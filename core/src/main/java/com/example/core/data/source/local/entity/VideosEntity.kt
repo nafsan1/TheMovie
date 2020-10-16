@@ -11,6 +11,8 @@ data class VideosEntity (
     @NonNull
     @ColumnInfo(name = "id")
     val id: String,
+    @ColumnInfo(name = "id_movies")
+    val id_movies: Int,
     @ColumnInfo(name = "key")
     val key: String
 )
